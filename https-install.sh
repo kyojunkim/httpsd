@@ -62,7 +62,7 @@ sed -i 's/Listen 80/Listen '"$HTTP_PORT"'/g' $INSTALL_PATH/httpd-2.4.10/conf/htt
 sed -i 's/Listen 443/Listen '"$HTTPS_PORT"'/g' $INSTALL_PATH/httpd-2.4.10/conf/extra/httpd-ssl.conf
 sed -i 's/_default_/'"$HTTPS_DOMAIN"'/g' $INSTALL_PATH/httpd-2.4.10/conf/httpd.conf
 sed -i 's/_default_/'"$HTTPS_DOMAIN"'/g' $INSTALL_PATH/httpd-2.4.10/conf/extra/httpd-ssl.conf
-sed -i 's/_port_/'"$HTTP_PORT"'/g' $INSTALL_PATH/httpd-2.4.10/conf/extra/httpd-ssl.conf
+sed -i 's/_port_/'"$HTTPS_PORT"'/g' $INSTALL_PATH/httpd-2.4.10/conf/extra/httpd-ssl.conf
 sed -i 's/_install_path_/'"$INSTALL_PATH_STRING"'/g' $INSTALL_PATH/httpd-2.4.10/conf/extra/httpd-ssl.conf
 sed -i 's/_install_path_/'"$INSTALL_PATH_STRING"'/g' $INSTALL_PATH/httpd-2.4.10/conf/httpd.conf
 
