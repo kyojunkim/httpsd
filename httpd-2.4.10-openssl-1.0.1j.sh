@@ -22,12 +22,12 @@ tar zxvf apr-util-1.5.4.tar.gz
 tar zxvf openssl-1.0.1j.tar.gz
 
 cd zlib-1.2.8
-./configure --prefix=$INSTALL_PATH/zlib/1.2.8;make;make install;
+./configure --prefix=$INSTALL_PATH/zlib-1.2.8;make;make install;
 cd ..
 
 cd pcre-8.36
 make clean
-./configure --prefix=$INSTALL_PATH/pcre/8.36;make;make install;
+./configure --prefix=$INSTALL_PATH/pcre-8.36;make;make install;
 cd ..
 
 cd openssl-1.0.1j
@@ -38,12 +38,12 @@ cd ..
 cd apr-1.5.1
 make clean
 cp -r libtool libtoolT 2> /dev/null
-./configure --prefix=$INSTALL_PATH/apr/1.5.1;make;make install;
+./configure --prefix=$INSTALL_PATH/apr-1.5.1;make;make install;
 cd ..
 
 cd apr-util-1.5.4
 make clean
-./configure --prefix=$INSTALL_PATH/apr-util/1.5.4 --with-apr=$INSTALL_PATH/apr/1.5.1;make;make install;
+./configure --prefix=$INSTALL_PATH/apr-util-1.5.4 --with-apr=$INSTALL_PATH/apr-1.5.1;make;make install;
 cd ..
 
 export LDFLAGS=-L$INSTALL_PATH/openssl-1.0.1j/lib;
