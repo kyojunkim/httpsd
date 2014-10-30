@@ -49,7 +49,7 @@ cd ..
 export LDFLAGS=-L$INSTALL_PATH/openssl-1.0.1j/lib;
 cd httpd-2.4.10
 make clean
-./configure --prefix=$INSTALL_PATH/httpd-2.4.10  --enable-nonportable-atomics=yes --with-apr=../apr-1.5.1 --with-apr-util=../apr-util-1.5.4 --with-pcre=$INSTALL_PATH/pcre-8.36/bin/pcre-config --with-ssl=$INSTALL_PATH/openssl-1.0.1j --enable-ssl --with-z=$INSTALL_PATH/zlib-1.2.8 --enable-so --enable-mpms-shared=all --enable-mods-shared=all;make;make install;
+./configure --prefix=$INSTALL_PATH/httpd-2.4.10  --with-apr=../apr-1.5.1 --with-apr-util=../apr-util-1.5.4 --with-pcre=$INSTALL_PATH/pcre-8.36/bin/pcre-config --with-ssl=$INSTALL_PATH/openssl-1.0.1j --enable-ssl --with-z=$INSTALL_PATH/zlib-1.2.8 --enable-so --enable-mpms-shared=all --enable-mods-shared=all;make;make install;
 cd ..
 
 cp ./httpd.conf $INSTALL_PATH/httpd-2.4.10/conf/httpd.conf
@@ -57,8 +57,8 @@ cp ./httpd-ssl.conf $INSTALL_PATH/httpd-2.4.10/conf/extra/
 cp ./server.key $INSTALL_PATH/httpd-2.4.10/conf/
 cp ./server.crt $INSTALL_PATH/httpd-2.4.10/conf/
 
-sed -i 's/Listen 80/Listen '"$HTTPS_PORT"'/g' $INSTALL_PATH/httpd-2.4.10/conf/httpd.conf
-sed -i 's/Listen 443/Listen '"$HTTP_PORT"'/g' $INSTALL_PATH/httpd-2.4.10/conf/extra/httpd-ssl.conf
+sed -i 's/Listen 80/Listen '"$HTTP_PORT"'/g' $INSTALL_PATH/httpd-2.4.10/conf/httpd.conf
+sed -i 's/Listen 443/Listen '"$HTTPS_PORT"'/g' $INSTALL_PATH/httpd-2.4.10/conf/extra/httpd-ssl.conf
 sed -i 's/_default_/'"$HTTPS_DOMAIN"'/g' $INSTALL_PATH/httpd-2.4.10/conf/httpd.conf
 sed -i 's/_default_/'"$HTTPS_DOMAIN"'/g' $INSTALL_PATH/httpd-2.4.10/conf/extra/httpd-ssl.conf
 sed -i 's/_port_/'"$HTTP_PORT"'/g' $INSTALL_PATH/httpd-2.4.10/conf/extra/httpd-ssl.conf
